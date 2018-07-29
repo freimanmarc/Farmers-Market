@@ -1,0 +1,44 @@
+import React, { Component } from 'react';
+import axios from 'axios';
+import logo from './logo.svg';
+import './App.css';
+
+export default class MarketForm extends React.Component    {
+   constructor()   {
+       super();
+       this.state = { zip: [] }
+   }
+
+
+   //Function is going to get passed a variable as an argument and interpolate with market.
+   async getMarket() {
+       const result = await axios.get(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${this.refs.return.value}`);
+       let data =  result.data.results;
+       console.log(data);
+       //log market.data.result[i] gives us the property of the object.
+   };
+
+   // When someone clicks submit
+   handleSubmit(e)  {
+     e.preventDefault();
+       console.log('handleSubmit function working');
+      const market = this.getMarket(this.refs.return.value);
+      console.log(market)
+           }
+
+   render()  {
+       //const {zip} = this.state;
+       return (
+           <form action="" className="farmer-market-form" onSubmit={this.handleSubmit.bind(this)}>
+           <h1 className="form-title">Find your local Farmers Market!</h1>
+          <div>
+             <label htmlFor="city">Enter Zip Code</label>
+             <input type="number" ref='return' name="zipcode"  placeholder="ex: 33018" />
+           </div>
+           <footer>
+             <input type="submit" value="Find my market!" />
+           </footer>
+           </form>
+       );
+   }
+}
