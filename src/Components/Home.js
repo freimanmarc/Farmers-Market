@@ -1,12 +1,22 @@
 import React from 'react';
-
 class Home extends React.Component{
   render(){
     return(
+      <div id="HomePage">
       <div>
-        <h1>Find Your Market</h1>
-        <p>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."</p>
+        <h1 id="HeaderOne">Farm Basket: Shop fresh, shop local</h1>
+        </div>
+        <div>
+          <img id="HomeImage" src={process.env.PUBLIC_URL + "/thankfarmer.jpg"}/>
+        </div>
+      <div id="HomeMainCont">
+        <h3 class='HomeContent'>Philosophy
+        <p>Buying your produce in your local farmers market promotes the local economy, as well as improving our food choices
+        in order to achieve a healthier and more sustainable lifestyle. </p></h3>
+      <h3 class class='HomeContent'>Contact
+        <p>manuelamarcrobert@localfarmers.com</p></h3>
       </div>
+    </div>
     )
   }
 }

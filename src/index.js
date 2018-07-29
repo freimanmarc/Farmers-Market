@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
+import './Style.css';
 import Home from './Components/Home';
 import About from './Components/About';
 import Markets from './Components/Markets';
