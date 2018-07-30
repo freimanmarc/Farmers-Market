@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700');
+html{
+  font-size: 62.5%;
+}
+
+* {
+  margin-left: 0rem;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+}
+#HeaderId li{
+  font-size: 1rem;
+  display: inline;
+  text-decoration: none;
+  margin: 0rem;
+  text-align: center;
+  color: black;
+  border: border-box;
+  padding: 0.5rem;
+}
+
+
+#HeaderOne{
+  text-align: center;
+  font-size: 5rem;
+}
+#HomeImage{
+  width: 60%;
+  height: 40%;
+  margin-left: 20%;
+}
+.HomeContent{
+  font-size: 3.5rem;
+  text-align: center;
+}
+#HomeMainCont{
+  background-color: lightgray;
+}
+#HomePage{
+  background-color: lightgreen;
+}
+#MisVis{
+  background-color: lightgray;
+  text-align: center;
+}
+#AboutPage{
+  background-color: lightgreen;
+}
+
+#HeaderAbout{
+  text-align: center;
+  font-size: 5rem;
+}
+.AboutMembers{
+  font-size: 3rem;
+  text-align: center;
+}
