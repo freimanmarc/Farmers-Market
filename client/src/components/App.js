@@ -17,8 +17,11 @@ export default class App extends Component {
 
   async getZip(zipId) {
     let {data} = await axios.get(`/zipCode/${zipId}`);
-    this.setState({marketList: data});
-    console.log(data);
+    // this.setState({marketList: data});
+    console.log(data.result);
+    let results = data.map(result => result.id);
+    console.log(results); 
+    this.setState({marketList: results})
   }
   async getMarket (marketId){
     let {data} = await axios.get(`/marketDetails/${marketId}`);

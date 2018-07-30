@@ -4,6 +4,7 @@ class Markets extends React.Component{
 
   render(){
     if(this.props.marketList.length) {
+      // for map here 
       return(
         <div>
           <h1>These are your area's markets</h1>
