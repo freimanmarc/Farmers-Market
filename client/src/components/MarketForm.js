@@ -9,7 +9,7 @@ class MarketForm extends React.Component {
 
    handleSubmit(e) {
      e.preventDefault();
-     this.props.getZip(this.refs.return.value);
+     this.props.getMarkets(this.refs.return.value);
    }
 
    render()  {

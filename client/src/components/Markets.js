@@ -1,9 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 
 class Markets extends React.Component{
 
   render(){
     if(this.props.marketList.length) {
+      // for map here  NOT WORKING RIGHT
+      // function marketItems()  {
+      //   console.log('TESTING MARKETLIST')
+      // let list = this.props.marketList.map(async list => await axios.get(`/marketDetails/${this.props.marketList}`));
+      // console.log(list.data.marketdetails);
+      // }
+      // marketItems();
+
+
       return(
         <div>
           <h1>These are your area's markets</h1>
@@ -12,7 +22,7 @@ class Markets extends React.Component{
       )
     } else {
       return (
-        <h1>Please search for markets</h1>
+        <h1>Please search for markets.</h1>
       )
     }
 
