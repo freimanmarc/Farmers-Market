@@ -5,15 +5,15 @@ import Market from './Market';
 class Markets extends React.Component{
 
   render(){
+    console.log('hello', this.props.marketList);
     if(this.props.marketList.length) {
       const seeMarkets = this.props.marketDetails;
-
-
+      console.dir(seeMarkets);
       return(
         <div>
           <h1>These are your area's markets</h1>
-          {seeMarkets.map((market, index) => {
-            return (<Market id={"market"+index} market={market.data.marketdetails}/>)
+          {seeMarkets.map(e => {
+            return (<Market id={e.myMarketName} market={e.marketdetails}/>)
           })}
         </div>
       )

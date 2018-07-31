@@ -27,16 +27,16 @@ export default class App extends Component {
     //[{"id":"1007325","marketname":"3.1 Youth Stands!"},
     //{"id":"1003550","marketname":"6.7 Barry University Green Market"}]
     let marketDetails_list = []
-    let list = this.state.marketList.forEach(async (market) => {
+    this.state.marketList.forEach(async (market) => {
       //console.log(market);
       let {data} = await axios.get(`/marketDetails/${market.id}`);
-      let marketDetails = data;
-      console.log(marketDetails);
-      marketDetails.myResponseUrlId = market.id;
-      marketDetails.myMarketName = market.marketname;
-      marketDetails_list.push(marketDetails);
+      // console.log(marketDetails);
+      data.marketdetails.myResponseUrlId = market.id;
+      data.marketdetails.myMarketName = market.marketname;
+      marketDetails_list.push(data);
+      this.setState({marketDetails: marketDetails_list});
     });
-    this.setState({marketDetails: marketDetails_list});
+
 
   }
 
@@ -56,7 +56,7 @@ render()  {
   return(
     <div>
       <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
-      <Markets marketList={this.state.marketList} marketDetails={this.state.marketDetails}/>
+      <Markets marketList={this.state.marketDetails} marketDetails={this.state.marketDetails}/>
     </div>
     )
   }
