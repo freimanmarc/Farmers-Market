@@ -51,10 +51,6 @@ render()  {
         <Route path = '/Home' component = {Home} />
         <Route path = '/Markets' render = { props => <Markets {...props} marketList={this.state.marketDetails} marketDetails={this.state.marketDetails} /> } />
         <Route path = '/About' component = {About} />
-
-
-        // <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
-        // <Markets marketList={this.state.marketDetails} marketDetails={this.state.marketDetails}/>
       </div>
     </BrowserRouter>
     )
