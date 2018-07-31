@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Market from './Market';
 
 class Markets extends React.Component{
 
@@ -13,11 +14,9 @@ class Markets extends React.Component{
       return(
         <div>
           <h1>These are your area's markets</h1>
-          <ul>
           {seeMarkets.map((market, index) => {
-            return (<li key={"market"+index}><p>{market.marketdetails.Address}</p><p></p></li>) 
+            return (<Market id={"market"+index} market={market.marketdetails}/>)
           })}
-          </ul>
         </div>
       )
     } else {
