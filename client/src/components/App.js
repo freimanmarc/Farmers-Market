@@ -3,6 +3,9 @@ import axios from 'axios';
 import MarketForm from './MarketForm';
 import Home from './Home'
 import Markets from './Markets'
+import {BrowserRouter, Route} from 'react-router-dom';
+import Header from './Header';
+import About from './About';
 
 export default class App extends Component {
   constructor() {
@@ -21,44 +24,38 @@ export default class App extends Component {
 
   async getZip(ZipId) {
     let {data} = await axios.get(`/zipCode/${ZipId}`);
-    let results = data.map(result => result.id);
-    this.setState({marketList: results});
-}
+    this.setState({marketList: data})
+  }
 
-async getName(ZipId) {
-  let {data} = await axios.get(`/zipCode/${ZipId}`);
-  let name = data.map(results => results.marketname);
-  console.log(name);
-  this.setState({marketName: name});
-}
 
-  async getDetails(marketList, marketDetails) {
+  async getDetails() {
     console.log('IM RUNNIN');
-    let list = marketList.map(async (mktId) => {
-      let data = await axios.get(`/marketDetails/${mktId}`);
-      marketDetails.push(data)
-      this.setState({marketDetails});
+    let marketDetails_list = []
+    this.state.marketList.forEach(async (market) => {
+      let {data} = await axios.get(`/marketDetails/${market.id}`);
+      data.marketdetails.myResponseUrlId = market.id;
+      data.marketdetails.myMarketName = market.marketname;
+      marketDetails_list.push(data);
+      this.setState({marketDetails: marketDetails_list});
     });
   }
 
   async getMarkets(zip) {
     await this.getZip(zip);
-    this.getDetails(this.state.marketList, this.state.marketDetails);
+    this.getDetails();
   }
 
-  // async componentDidMount() {
-  //   await this.getZip();
-  //   let list = this.marketList.map(async mkt => await axios.get(`/marketDetails/${this.marketList}`));
-  //   this.setState({marketDetails: list.data.marketdetails});
-  //   console.log(list.data.marketdetails);
-  // }
 
 render()  {
   return(
-    <div>
-      <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
-      <Markets marketList={this.state.marketList} marketDetails={this.state.marketDetails} />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Route path = '/' render = {props => <MarketForm {...props} getMarkets={this.getMarkets} getZip={this.getZip} /> } />
+        <Route path = '/Home' component = {Home} />
+        <Route path = '/Markets' render = { props => <Markets {...props} marketList={this.state.marketDetails} marketDetails={this.state.marketDetails} /> } />
+        <Route path = '/About' component = {About} />
+      </div>
+    </BrowserRouter>
     )
   }
 };

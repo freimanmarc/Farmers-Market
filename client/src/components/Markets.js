@@ -7,14 +7,13 @@ class Markets extends React.Component{
   render(){
     if(this.props.marketList.length) {
       const seeMarkets = this.props.marketDetails;
-      const name = this.props.marketList;
-
 
       return(
         <div>
           <h1>These are your area's markets</h1>
-          {seeMarkets.map((market, index) => {
-            return (<Market key={"market"+index} id={"market"+index} market={market.data.marketdetails}/>)
+          {seeMarkets.map(e => {
+            return (<Market id={e.myMarketName} market={e.marketdetails}/>)
+
           })}
         </div>
       )

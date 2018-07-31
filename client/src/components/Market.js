@@ -6,10 +6,9 @@ export default class Market extends React.Component{
     return(
       <div>
         <ul>
-          <li> Name: </li>
+          <li> Name: {this.props.market.myMarketName}</li>
           <li> Address: {this.props.market.Address}</li>
           <li> Products: {this.props.market.Products}</li>
-          <li> Schedule: {this.props.market.Schedule}</li>
         </ul>
       </div>
     )

@@ -11,12 +11,8 @@ app.get('/zipCode/:zipId', async(req, res) => {
 })
 
 app.get('/marketDetails/:marketId', async(req, res) => {
-  let {data} = await axios.get(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=${req.params.marketId}`);
-  console.log(data);
-  for(market in data) {
-    data[market].Schedule = data[market].Schedule.replace(/<br>/gi, '')
-  }
-  res.json(data);
+  let data = await axios.get(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=${req.params.marketId}`);
+    res.json(data);
 })
 
 let PORT = process.env.PORT || 5000;
