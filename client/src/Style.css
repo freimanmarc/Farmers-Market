@@ -48,6 +48,7 @@ html{
 }
 #AboutPage{
   background-color: lightgreen;
+  text-align: center;
 }
 
 #HeaderAbout{
@@ -57,4 +58,9 @@ html{
 .AboutMembers{
   font-size: 3rem;
   text-align: center;
+}
+.Photos{
+  width: 20%;
+  height: 20%;
+
 }

@@ -3,6 +3,9 @@ import axios from 'axios';
 import MarketForm from './MarketForm';
 import Home from './Home'
 import Markets from './Markets'
+import {BrowserRouter, Route} from 'react-router-dom';
+import Header from './Header';
+import About from './About';
 
 export default class App extends Component {
   constructor() {
@@ -46,10 +49,18 @@ export default class App extends Component {
 
 render()  {
   return(
-    <div>
-      <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
-      <Markets marketList={this.state.marketList} marketDetails={this.state.marketDetails}/>
-    </div>
+    <BrowserRouter>
+        <div>
+          <Route path = '/' render = {props => <MarketForm {...props} getMarkets={this.getMarkets} /> } />
+          <Route path = '/Home' component = {Home} />
+          <Route path = '/Markets' render = { props => <Markets {...props} marketList={this.state.marketList} marketDetails={this.state.marketDetails} /> } />
+          <Route path = '/About' component = {About} />
+        </div>
+      </BrowserRouter>
+    // <div>
+    //   <MarketForm getZip={this.getZip} getMarkets={this.getMarkets} history={this.props.history}/>
+    //   <Markets marketList={this.state.marketList} marketDetails={this.state.marketDetails}/>
+    // </div>
     )
   }
 };

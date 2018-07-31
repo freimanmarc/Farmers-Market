@@ -5,12 +5,8 @@ import Market from './Market';
 class Markets extends React.Component{
 
   render(){
-    if(this.props.marketList.length) {
+    if(this.props.marketList && this.props.marketList.length) {
       const seeMarkets = this.props.marketDetails;
-
-
-
-
       return(
         <div>
           <h1>These are your area's markets</h1>
