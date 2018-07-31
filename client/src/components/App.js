@@ -3,6 +3,9 @@ import axios from 'axios';
 import MarketForm from './MarketForm';
 import Home from './Home'
 import Markets from './Markets'
+import {BrowserRouter, Route} from 'react-router-dom';
+import Header from './Header';
+import About from './About';
 
 export default class App extends Component {
   constructor() {
@@ -24,20 +27,14 @@ export default class App extends Component {
 
   async getDetails() {
     console.log('IM RUNNIN');
-    //[{"id":"1007325","marketname":"3.1 Youth Stands!"},
-    //{"id":"1003550","marketname":"6.7 Barry University Green Market"}]
     let marketDetails_list = []
     this.state.marketList.forEach(async (market) => {
-      //console.log(market);
       let {data} = await axios.get(`/marketDetails/${market.id}`);
-      // console.log(marketDetails);
       data.marketdetails.myResponseUrlId = market.id;
       data.marketdetails.myMarketName = market.marketname;
       marketDetails_list.push(data);
       this.setState({marketDetails: marketDetails_list});
     });
-
-
   }
 
   async getMarkets(zip) {
@@ -45,19 +42,21 @@ export default class App extends Component {
     this.getDetails();
   }
 
-  // async componentDidMount() {
-  //   await this.getZip();
-  //   let list = this.marketList.map(async mkt => await axios.get(`/marketDetails/${this.marketList}`));
-  //   this.setState({marketDetails: list.data.marketdetails});
-  //   console.log(list.data.marketdetails);
-  // }
 
 render()  {
   return(
-    <div>
-      <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
-      <Markets marketList={this.state.marketDetails} marketDetails={this.state.marketDetails}/>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Route path = '/' render = {props => <MarketForm {...props} getMarkets={this.getMarkets} getZip={this.getZip} /> } />
+        <Route path = '/Home' component = {Home} />
+        <Route path = '/Markets' render = { props => <Markets {...props} marketList={this.state.marketDetails} marketDetails={this.state.marketDetails} /> } />
+        <Route path = '/About' component = {About} />
+
+
+        // <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
+        // <Markets marketList={this.state.marketDetails} marketDetails={this.state.marketDetails}/>
+      </div>
+    </BrowserRouter>
     )
   }
 };

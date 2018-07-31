@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 
 class MarketForm extends React.Component {
@@ -7,13 +8,27 @@ class MarketForm extends React.Component {
      this.handleSubmit = this.handleSubmit.bind(this);
    }
 
-   handleSubmit(e) {
+   async handleSubmit(e) {
      e.preventDefault();
-     this.props.getMarkets(this.refs.return.value);
+     await this.props.getMarkets(this.refs.return.value);
+     this.props.history.push("/Markets")
    }
 
    render()  {
        return (
+      <div>
+         <ul id='HeaderId'>
+           <li>
+             <Link to = '/Home'>Home</Link>
+           </li>
+           <li>
+             <Link to = '/About'>About</Link>
+             </li>
+             <li>
+             <Link to = '/Markets'>Your Markets</Link>
+           </li>
+           </ul>
+
            <form action="" className="farmer-market-form" onSubmit={this.handleSubmit}>
            <h1 className="form-title">Find your local Farmers Market!</h1>
           <div>
@@ -24,6 +39,7 @@ class MarketForm extends React.Component {
              <input type="submit" value="Find my market!" />
            </footer>
            </form>
+        </div>
        );
    }
 }
