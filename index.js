@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static(__dirname + '/client/build'));
 
 app.get('/zipCode/:zipId', async(req, res) => {
-  let {data} = await axios.get(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${req.params.zipId}`);
+  let data = await axios.get(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${req.params.zipId}`);
   res.json(data.results);
 })
 

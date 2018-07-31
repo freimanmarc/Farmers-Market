@@ -9,6 +9,7 @@ export default class App extends Component {
     super();
     this.state = {
       zipCode: null,
+      marketName: [],
       marketList: [],
       marketDetails: []
     }
@@ -17,16 +18,24 @@ export default class App extends Component {
     this.getDetails = this.getDetails.bind(this);
   }
 
+
   async getZip(ZipId) {
     let {data} = await axios.get(`/zipCode/${ZipId}`);
     let results = data.map(result => result.id);
-    this.setState({marketList: results})
-  }
+    this.setState({marketList: results});
+}
+
+async getName(ZipId) {
+  let {data} = await axios.get(`/zipCode/${ZipId}`);
+  let name = data.map(results => results.marketname);
+  console.log(name);
+  this.setState({marketName: name});
+}
 
   async getDetails(marketList, marketDetails) {
     console.log('IM RUNNIN');
     let list = marketList.map(async (mktId) => {
-      let {data} = await axios.get(`/marketDetails/${mktId}`);
+      let data = await axios.get(`/marketDetails/${mktId}`);
       marketDetails.push(data)
       this.setState({marketDetails});
     });
@@ -48,7 +57,7 @@ render()  {
   return(
     <div>
       <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
-      <Markets marketList={this.state.marketList} marketDetails={this.state.marketDetails}/>
+      <Markets marketList={this.state.marketList} marketDetails={this.state.marketDetails} />
     </div>
     )
   }
