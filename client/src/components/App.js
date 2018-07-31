@@ -10,30 +10,45 @@ export default class App extends Component {
     this.state = {
       zipCode: null,
       marketList: [],
-      marketDetails: {}
+      marketDetails: []
     }
+    this.getMarkets = this.getMarkets.bind(this);
     this.getZip = this.getZip.bind(this);
+    this.getDetails = this.getDetails.bind(this);
   }
 
-  async getZip(zipId) {
-    let {data} = await axios.get(`/zipCode/${zipId}`);
-    // this.setState({marketList: data});
-    console.log(data.result);
+  async getZip(ZipId) {
+    let {data} = await axios.get(`/zipCode/${ZipId}`);
     let results = data.map(result => result.id);
-    console.log(results); 
-    this.setState({marketList: results})
+    this.setState({marketList: results}) 
   }
-  async getMarket (marketId){
-    let {data} = await axios.get(`/marketDetails/${marketId}`);
-    this.setState({marketDetails: data});
-    console.log(data);
+
+  async getDetails(marketList, marketDetails) {
+    console.log('IM RUNNIN');
+    let list = marketList.map(async (mktId) => {
+      let {data} = await axios.get(`/marketDetails/${mktId}`);
+      marketDetails.push(data)
+      this.setState({marketDetails});
+    });
   }
+
+  async getMarkets(zip) {   
+    await this.getZip(zip);
+    this.getDetails(this.state.marketList, this.state.marketDetails);
+  }
+
+  // async componentDidMount() {
+  //   await this.getZip();
+  //   let list = this.marketList.map(async mkt => await axios.get(`/marketDetails/${this.marketList}`));
+  //   this.setState({marketDetails: list.data.marketdetails});
+  //   console.log(list.data.marketdetails);
+  // }
 
 render()  {
   return(
     <div>
-      <MarketForm getZip={this.getZip}/>
-      <Markets marketList={this.state.marketList}/>
+      <MarketForm getZip={this.getZip} getMarkets={this.getMarkets}/>
+      <Markets marketList={this.state.marketList} marketDetails={this.state.marketDetails}/>
     </div>
     )
   }
