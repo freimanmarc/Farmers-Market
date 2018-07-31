@@ -20,7 +20,7 @@ export default class App extends Component {
   async getZip(ZipId) {
     let {data} = await axios.get(`/zipCode/${ZipId}`);
     let results = data.map(result => result.id);
-    this.setState({marketList: results}) 
+    this.setState({marketList: results})
   }
 
   async getDetails(marketList, marketDetails) {
@@ -32,7 +32,7 @@ export default class App extends Component {
     });
   }
 
-  async getMarkets(zip) {   
+  async getMarkets(zip) {
     await this.getZip(zip);
     this.getDetails(this.state.marketList, this.state.marketDetails);
   }
