@@ -12,6 +12,7 @@ export default class App extends Component {
     super();
     this.state = {
       zipCode: null,
+      marketName: [],
       marketList: [],
       marketDetails: []
     }
@@ -20,10 +21,12 @@ export default class App extends Component {
     this.getDetails = this.getDetails.bind(this);
   }
 
+
   async getZip(ZipId) {
     let {data} = await axios.get(`/zipCode/${ZipId}`);
     this.setState({marketList: data})
   }
+
 
   async getDetails() {
     console.log('IM RUNNIN');
