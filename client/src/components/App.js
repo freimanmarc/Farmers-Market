@@ -19,22 +19,30 @@ export default class App extends Component {
 
   async getZip(ZipId) {
     let {data} = await axios.get(`/zipCode/${ZipId}`);
-    let results = data.map(result => result.id);
-    this.setState({marketList: results})
+    this.setState({marketList: data})
   }
 
-  async getDetails(marketList, marketDetails) {
+  async getDetails() {
     console.log('IM RUNNIN');
-    let list = marketList.map(async (mktId) => {
-      let {data} = await axios.get(`/marketDetails/${mktId}`);
-      marketDetails.push(data)
-      this.setState({marketDetails});
+    //[{"id":"1007325","marketname":"3.1 Youth Stands!"},
+    //{"id":"1003550","marketname":"6.7 Barry University Green Market"}]
+    let marketDetails_list = []
+    let list = this.state.marketList.forEach(async (market) => {
+      //console.log(market);
+      let {data} = await axios.get(`/marketDetails/${market.id}`);
+      let marketDetails = data;
+      console.log(marketDetails);
+      marketDetails.myResponseUrlId = market.id;
+      marketDetails.myMarketName = market.marketname;
+      marketDetails_list.push(marketDetails);
     });
+    this.setState({marketDetails: marketDetails_list});
+
   }
 
   async getMarkets(zip) {
     await this.getZip(zip);
-    this.getDetails(this.state.marketList, this.state.marketDetails);
+    this.getDetails();
   }
 
   // async componentDidMount() {
