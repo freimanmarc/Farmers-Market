@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700');
+
 html{
  font-size: 62.5%;
 }
@@ -8,8 +8,6 @@ html{
  padding: 0;
  box-sizing: border-box;
  vertical-align: top;
- font-size: 1.5rem;
- font-family: sans-serif;
 }
 #HeaderId li{
  font-size: 1rem;
@@ -49,6 +47,8 @@ html{
 #AboutPage{
  background-color: lightgreen;
  text-align: center;
+ font-family: 'Montserrat', sans-serif;
+ font-size: 2rem;
 }
 
 #HeaderAbout{
@@ -63,4 +63,13 @@ html{
  width: 20%;
  height: 20%;
 
+}
+#Markets {
+  border: solid;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgray;
+}
+#Bar{
+  margin-left: 80%;
 }

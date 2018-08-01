@@ -28,7 +28,7 @@ class MarketForm extends React.Component {
              <Link to = '/Markets'>Your Markets</Link>
            </li>
            </ul>
-
+           <div id="Bar">
            <form action="" className="farmer-market-form" onSubmit={this.handleSubmit}>
            <h1 className="form-title">Find your local Farmers Market!</h1>
           <div>
@@ -39,6 +39,7 @@ class MarketForm extends React.Component {
              <input type="submit" value="Find my market!" />
            </footer>
            </form>
+           </div>
         </div>
        );
    }
