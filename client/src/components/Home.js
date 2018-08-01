@@ -11,10 +11,10 @@ class Home extends React.Component{
         </div>
       <div id="HomeMainCont" alt="thankfarmer">
         <h3 className='HomeContent'>Philosophy
-        <p>Buying your produce in your local farmers market promotes the local economy, as well as improving our food choices
+        <p className ="HomeText">Buying your produce in your local farmers market promotes the local economy, as well as improving our food choices
         in order to achieve a healthier and more sustainable lifestyle. </p></h3>
       <h3 className='HomeContent'>Contact
-        <p>manuelamarcrobert@localfarmers.com</p></h3>
+        <p className ="HomeText">manuelamarcrobert@localfarmers.com</p></h3>
       </div>
     </div>
     )

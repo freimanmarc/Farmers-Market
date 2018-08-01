@@ -10,7 +10,7 @@ class Markets extends React.Component{
 
       return(
         <div>
-          <h1>These are your area's markets</h1>
+          <h1 id="area-header">These are your area's markets: </h1>
           {seeMarkets.map(e => {
             return (<Market id={e.myMarketName} market={e.marketdetails}/>)
 
@@ -19,7 +19,7 @@ class Markets extends React.Component{
       )
     } else {
       return (
-        <h1>Please search for markets.</h1>
+        <h1 className = "please-search">Please search for markets.</h1>
       )
     }
 
