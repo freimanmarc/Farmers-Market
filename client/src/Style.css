@@ -9,6 +9,9 @@ html{
  box-sizing: border-box;
  vertical-align: top;
 }
+* ul{
+  list-style-type: none;
+}
 #HeaderId li{
  font-size: 1rem;
  display: inline;
@@ -23,23 +26,35 @@ html{
 
 #HeaderOne{
  text-align: center;
- font-size: 5rem;
+ font-size: 6rem;
+ margin-top: 0;
 }
 #HomeImage{
  width: 60%;
  height: 40%;
- margin-left: 20%;
+ margin: auto;
 }
 .HomeContent{
  font-size: 3.5rem;
  text-align: center;
 }
+
+#HomePage{
+ background-color: lightgreen;
+ text-align: center;
+ font-family: 'Montserrat', sans-serif;
+ font-size: 2rem;
+}
+
 #HomeMainCont{
  background-color: lightgray;
 }
-#HomePage{
- background-color: lightgreen;
+.HomeText{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: lighter;
 }
+
 #MisVis{
  background-color: lightgray;
  text-align: center;
@@ -62,14 +77,34 @@ html{
 .Photos{
  width: 20%;
  height: 20%;
+}
 
+#market-div {
+  background-color: lightgreen;
 }
 #Markets {
-  border: solid;
-  margin-left: auto;
-  margin-right: auto;
+  border: solid 1px black;
+  display:flex;
+  margin-left: 20%;
+  margin-right: 20%;
+  list-style-type: none;
+  font-family: 'Slabo 27px';
+  font-size: 2rem;
   background-color: lightgray;
 }
-#Bar{
-  margin-left: 80%;
+
+
+#area-header {
+  font-family: 'Slabo 27px', serif;
+  font-size: 6rem;
+  text-align: center;
+  background-color: lightgreen;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.please-search {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
 }
