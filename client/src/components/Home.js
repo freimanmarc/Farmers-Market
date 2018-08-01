@@ -4,7 +4,7 @@ class Home extends React.Component{
     return(
       <div id="HomePage">
       <div>
-        <h1 id="HeaderOne">Farm Basket: Shop fresh, shop local</h1>
+        <h1 id="HeaderOne">My Local Market: Local is fresh</h1>
         </div>
         <div>
           <img id="HomeImage" src={process.env.PUBLIC_URL + "/thankfarmer.jpg"}/>

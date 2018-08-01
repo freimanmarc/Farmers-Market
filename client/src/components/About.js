@@ -6,7 +6,7 @@ class About extends React.Component{
      <div id="AboutPage">
        <div>
      <h1 id="HeaderAbout">About Us</h1>
-     <p>'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'</p>
+     <p>MyLocalMarket came to be as a realization that local farmers are misrepresented and under marketed, causing the community to shop at chain markets instead of supporting their local farmers and boosting the local economy.</p>
      </div>
      <div id="AboutMainContent">
        <h2 className="AboutMembers">Manuela Cardenas
@@ -21,8 +21,7 @@ class About extends React.Component{
        <h2 className="AboutMembers">Robert Garcia
        </h2>
          <img className="Photos" src={process.env.PUBLIC_URL + "/GarciaRobert.jpg"}/>
-         <p>Robert is a former retail manager who understands the need for good cutomer/supplier relationships,
-         he is currently a web devoloper and founding member of Farm Baket.</p>
+         <p>Robert is a former retail manager who understands the need for good cutomer/supplier relationships</p>
      </div>
      <div id="MisVis">
        <div>
