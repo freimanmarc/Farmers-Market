@@ -29,7 +29,6 @@ export default class App extends Component {
 
 
   async getDetails() {
-    console.log('IM RUNNIN');
     let marketDetails_list = []
     this.state.marketList.forEach(async (market) => {
       let {data} = await axios.get(`/marketDetails/${market.id}`);
