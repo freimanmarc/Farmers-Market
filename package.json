@@ -2,7 +2,7 @@
   "name": "react-express-app",
   "version": "1.0.0",
   "engines": {
-    "node": "^10"
+    "node": ">=9.0.0"
   },
   "description": "",
   "main": "index.js",
