@@ -11,16 +11,16 @@ class About extends React.Component{
      <div id="AboutMainContent">
        <h2 className="AboutMembers">Manuela Cardenas
        </h2>
-           <img className="Photos" src={process.env.PUBLIC_URL + "/CardenasManuela.jpg"}/>
+           <img className="Photos" src={process.env.PUBLIC_URL + "/CardenasManuela.jpg"} alt="people"/>
          <p>Manuela is a former teacher with a passion for farming.</p>
        <h2 className="AboutMembers">Marc Freiman
        </h2>
-           <img className="Photos" src={process.env.PUBLIC_URL + "/FreimanMarc.jpg"}/>
+           <img className="Photos" src={process.env.PUBLIC_URL+"/FreimanMarc.jpg"} alt="people"/>
          <p>Marc is a Mechanical and Electrical Engineer who enjoys working with new people to solve
          everyday problems.</p>
        <h2 className="AboutMembers">Robert Garcia
        </h2>
-         <img className="Photos" src={process.env.PUBLIC_URL + "/GarciaRobert.jpg"}/>
+         <img className="Photos" src={process.env.PUBLIC_URL + "/GarciaRobert.jpg" alt="people"}/>
          <p>Robert is a former retail manager who understands the need for good cutomer/supplier relationships</p>
      </div>
      <div id="MisVis">
