@@ -15,7 +15,8 @@ app.get('/marketDetails/:marketId', async(req, res) => {
   let {data} = await axios.get(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=${req.params.marketId}`);
   res.json(data);
 })
-app.get('/'. (req, res) => {
+
+app.get('/', (req, res) => {
   res.sendFile(express.static(__dirname + '/public/index.html'));
 })
 
