@@ -24,13 +24,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freimanmarc/Farmers-Market.git"
+    "url": "https://github.com/freimanmarc/Farmers-Market.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/freimanmarc/Farmers-Market/issues"
-  },
-  "homepage": "https://github.com/freimanmarc/Farmers-Market#readme"
+  }
 }

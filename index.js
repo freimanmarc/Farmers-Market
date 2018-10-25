@@ -17,7 +17,7 @@ app.get('/marketDetails/:marketId', async(req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.sendFile(express.static(__dirname + '/public/index.html'));
+  res.sendFile( express.static(__dirname + '/public/index.html') );
 })
 
 let PORT = process.env.PORT || 5000;
