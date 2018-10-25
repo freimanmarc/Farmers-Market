@@ -49,8 +49,8 @@ render()  {
   return(
     <BrowserRouter>
       <div>
-        <Route path = '/' render = {props => <MarketForm {...props} getMarkets={this.getMarkets} getZip={this.getZip} /> } />
-        <Route path = '/home' component = {Home} />
+        <Route path = "/*" render = { props => <MarketForm  {...props} getMarkets={this.getMarkets} getZip={this.getZip} /> } />
+        <Route exact path = '/' component={ Home }/>
         <Route path = '/markets' render = { props => <Markets {...props} marketList={this.state.marketDetails} marketDetails={this.state.marketDetails} /> } />
         <Route path = '/about' component = {About} />
       </div>

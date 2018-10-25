@@ -1,4 +1,5 @@
 import React from 'react';
+import home from '../images/thankfarmer.jpg'
 class Home extends React.Component{
   render(){
     return(
@@ -7,7 +8,7 @@ class Home extends React.Component{
         <h1 id="HeaderOne">My Local Market: Local is fresh</h1>
         </div>
         <div>
-          <img id="HomeImage" src={process.env.PUBLIC_URL + "/thankfarmer.jpg"}/>
+          <img id="HomeImage" src={home}/>
         </div>
       <div id="HomeMainCont" alt="thankfarmer">
         <h3 className='HomeContent'>Philosophy

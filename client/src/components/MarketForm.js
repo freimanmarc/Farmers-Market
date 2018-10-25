@@ -45,7 +45,7 @@ class MarketForm extends React.Component {
      return (
        <Menu id='HeaderId'>
          <Menu.Item style={navItem}>
-           <Link to = '/Home'>Home</Link>
+           <Link to = '/'>Home</Link>
          </Menu.Item>
          <Menu.Item style={navItem}>
            <Link to = '/About'>About</Link>
